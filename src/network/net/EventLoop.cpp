@@ -11,7 +11,7 @@ using namespace nest::base;
 static thread_local EventLoop *t_local_eventloop = nullptr;
 
 EventLoop::EventLoop()
-: epollfd_(::epoll_create(1024)), epoll_events_(1024), ep_(new Epoller)
+: ep_(new Epoller)
 {
     if (t_local_eventloop) {
         LOG_ERROR << "Alread had a eventloop.";
